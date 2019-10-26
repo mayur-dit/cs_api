@@ -1,0 +1,28 @@
+﻿USE mydb
+GO
+
+CREATE TABLE Address
+(
+    ID      INT PRIMARY KEY IDENTITY (1,1),
+    TITLE   VARCHAR(255),
+    COUNTRY VARCHAR(255)
+);
+INSERT INTO Address(TITLE, COUNTRY)
+VALUES ('Delhi', 'India');
+INSERT INTO Address(TITLE, COUNTRY)
+VALUES ('New York', 'USA');
+INSERT INTO Address(TITLE, COUNTRY)
+VALUES ('Canberra', 'Australia');
+INSERT INTO Address(TITLE, COUNTRY)
+VALUES ('Beijing', 'Chaina');
+
+
+CREATE TABLE Person
+(
+    PERSON_ID    INT PRIMARY KEY IDENTITY (1,1),
+    NAME         VARCHAR(2000),
+    HOBBIES      VARCHAR(MAX),
+    ADDRESS_ID   INT
+        CONSTRAINT FK__Person__Address FOREIGN KEY REFERENCES Address (ID),
+    CREATED_DATE DATETIME
+);
