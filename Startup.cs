@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using cs_api.Models;
 using cs_api.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -16,6 +17,8 @@ namespace cs_api {
             Configuration = configuration;
         }
 
+        readonly string My_CORS_Policy = "My_CORS_Policy";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             services.AddControllers();
@@ -30,11 +33,12 @@ namespace cs_api {
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+            app.UseCors(My_CORS_Policy);
+
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             else app.UseHsts();
 
             app.UseMvc();
-            app.UseCors("My_CORS_Policy");
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();

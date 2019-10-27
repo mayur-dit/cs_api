@@ -7,7 +7,7 @@ using cs_api.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace cs_api.Controllers {
-    [Route("api/[controller]")]
+    [Route("api/person/")]
     [ApiController]
     public class PersonController : ControllerBase {
         IPersonRepository _personRepository;

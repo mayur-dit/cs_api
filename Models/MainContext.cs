@@ -23,7 +23,6 @@ namespace cs_api.Models {
                 entity.Property(e => e.AddressId).HasColumnName("ADDRESS_ID");
                 entity.Property(e => e.CreatedDate).HasColumnName("CREATED_DATE").HasColumnType("datetime");
                 entity.Property(e => e.Hobbies).HasColumnName("HOBBIES").IsUnicode(false);
-                entity.Property(e => e.Name).HasColumnName("TITLE").HasMaxLength(2000).IsUnicode(false);
                 entity.HasOne(d => d.Address).WithMany(p => p.Person).HasForeignKey(d => d.AddressId).HasConstraintName("FK__Person__Address");
             });
         }
