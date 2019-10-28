@@ -73,7 +73,7 @@ namespace cs_api.Controllers {
             return BadRequest();
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("DeletePerson")]
         public async Task<IActionResult> DeletePerson(int? personId) {
             int result = 0;
